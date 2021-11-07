@@ -12,22 +12,14 @@ def findNamesOfImages(labels):
     url = []
     for label in labels:
         if label is not None:
-            url = 'https://search-search-photo-rwgymlf6d427ufgi4wfi55rrma.us-east-1.es.amazonaws.com/photo/_doc'
+            url = 'https://search-search-photo-rwgymlf6d427ufgi4wfi55rrma.us-east-1.es.amazonaws.com/photo/_doc/_search?q=labels:'
             headers = {"Content-Type":"application/json"}
             logger.debug('Inside addIndex')
             
-            query = {
-            'size': 50,
-            'query': {
-                'multi_match': {
-                'query': label,
-                'fields': ['labels']
-                }
-                }
-            }
+            url = url + label
             
             try:    
-                response = requests.get(url,data=json.dumps(query).encode("utf-8"),headers=headers,auth=('viren', 'Zaq1@wsx'))
+                response = requests.get(url,headers=headers,auth=('xxx', 'xxx'))
                 logger.debug(response.text)
             except Exception as e:
                 logger.error(e)
