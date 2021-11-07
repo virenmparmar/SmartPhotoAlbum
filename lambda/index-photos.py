@@ -58,7 +58,7 @@ def addIndex(bucket, objectKey, labels):
     logger.debug(body)
     
     try:    
-        response = requests.post(url,data=json.dumps(body).encode("utf-8"),headers=headers,auth=('viren', 'Zaq1@wsx'))
+        response = requests.post(url,data=json.dumps(body).encode("utf-8"),headers=headers,auth=('xxxx', 'xxxx'))
         logger.debug(response.text)
     except Exception as e:
         logger.error(e)
